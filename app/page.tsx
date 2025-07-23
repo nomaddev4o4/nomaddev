@@ -92,6 +92,161 @@ function ProjectVideo({ src }: ProjectVideoProps) {
   )
 }
 
+type WorkCardProps = {
+  job: {
+    company: string
+    title: string
+    start: string
+    end: string
+    link: string
+    id: string
+    description: string[]
+    technologies: string[]
+    achievements: string[]
+  }
+}
+
+function WorkCard({ job }: WorkCardProps) {
+  return (
+    <MorphingDialog
+      transition={{
+        type: 'spring',
+        bounce: 0,
+        duration: 0.3,
+      }}
+    >
+      <MorphingDialogTrigger>
+        <div className="relative cursor-pointer overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30">
+          <Spotlight
+            className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+            size={64}
+          />
+          <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className="relative flex w-full flex-row justify-between">
+              <div>
+                <h4 className="font-normal dark:text-zinc-100">{job.title}</h4>
+                <p className="text-zinc-500 dark:text-zinc-400">
+                  {job.company}
+                </p>
+              </div>
+              <p className="text-zinc-600 dark:text-zinc-400">
+                {job.start} - {job.end}
+              </p>
+            </div>
+          </div>
+        </div>
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent className="relative max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+          <div className="space-y-6">
+            {/* Header */}
+            <div className="space-y-2">
+              <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+                {job.title}
+              </h2>
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-medium text-zinc-700 dark:text-zinc-300">
+                  {job.company}
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  {job.start} - {job.end}
+                </p>
+              </div>
+              <a
+                href={job.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              >
+                Visit Company
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3 w-3"
+                >
+                  <path
+                    d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                    fill="currentColor"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            {/* Key Responsibilities */}
+            <div className="space-y-3">
+              <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                Key Responsibilities
+              </h4>
+              <ul className="space-y-2">
+                {job.description.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
+                    <span className="text-zinc-700 dark:text-zinc-300">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Technologies */}
+            <div className="space-y-3">
+              <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                Technologies
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {job.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md bg-zinc-100 px-2 py-1 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Achievements */}
+            <div className="space-y-3">
+              <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
+                Key Achievements
+              </h4>
+              <ul className="space-y-2">
+                {job.achievements.map((achievement, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-green-500"></span>
+                    <span className="text-zinc-700 dark:text-zinc-300">
+                      {achievement}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </MorphingDialogContent>
+        <MorphingDialogClose
+          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1 dark:bg-zinc-900"
+          variants={{
+            initial: { opacity: 0 },
+            animate: {
+              opacity: 1,
+              transition: { delay: 0.3, duration: 0.1 },
+            },
+            exit: { opacity: 0, transition: { duration: 0 } },
+          }}
+        >
+          <XIcon className="h-5 w-5 text-zinc-500" />
+        </MorphingDialogClose>
+      </MorphingDialogContainer>
+    </MorphingDialog>
+  )
+}
+
 function MagneticSocialLink({
   children,
   link,
@@ -229,33 +384,7 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
-            <Link
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={job.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={job.id}
-            >
-              <Spotlight
-                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
-                size={64}
-              />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
-                  </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.start} - {job.end}
-                  </p>
-                </div>
-              </div>
-            </Link>
+            <WorkCard key={job.id} job={job} />
           ))}
         </div>
       </motion.section>
@@ -298,43 +427,6 @@ export default function Personal() {
           </AnimatedBackground>
         </div>
       </motion.section>
-
-      {/* Blog */}
-      {/* <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </motion.section> */}
 
       <motion.section
         variants={VARIANTS_SECTION}

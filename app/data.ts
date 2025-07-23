@@ -14,6 +14,9 @@ type WorkExperience = {
   end: string
   link: string
   id: string
+  description: string[]
+  technologies: string[]
+  achievements: string[]
 }
 
 type Education = {
@@ -119,6 +122,19 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://aquera.com/',
     id: 'work1',
+    description: [
+      'Developing enterprise-grade Angular applications for Fortune 500 companies',
+      'Leading frontend architecture decisions and implementation strategies',
+      'Collaborating with cross-functional teams to deliver scalable solutions',
+      'Mentoring junior developers and conducting code reviews',
+    ],
+    technologies: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'SCSS', 'Jest'],
+    achievements: [
+      'Improved application performance by 40% through optimization techniques',
+      'Successfully delivered 3 major feature releases on time',
+      'Reduced bug reports by 60% through improved testing practices',
+      'Led migration of legacy codebase to modern Angular architecture',
+    ],
   },
 ]
 
