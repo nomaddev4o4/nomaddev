@@ -15,6 +15,14 @@ type WorkExperience = {
   id: string
 }
 
+type Education = {
+  school: string
+  degree: string
+  start: string
+  end: string
+  link: string
+}
+
 type BlogPost = {
   title: string
   description: string
@@ -27,20 +35,48 @@ type SocialLink = {
   link: string
 }
 
+export const SKILLS = [
+  {
+    category: 'Frameworks & Libraries',
+    items: ['Next.js', 'React', 'Angular'],
+  },
+  {
+    category: 'Languages',
+    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+  },
+  {
+    category: 'Styling',
+    items: ['Tailwind CSS', 'SCSS', 'ShadcnUI', 'HeroUI'],
+  },
+  {
+    category: 'Tools & Platforms',
+    items: ['Git', 'GitHub', 'Bitbucket', 'JIRA', 'Vercel', 'NX'],
+  },
+  {
+    category: 'Backend & APIs',
+    items: ['Supabase', 'NodeJS'],
+  },
+  {
+    category: 'Other Skills',
+    items: ['Responsive Design', 'Clean Architecture'],
+  },
+]
+
 export const PROJECTS: Project[] = [
   {
-    name: 'Motion Primitives Pro',
+    name: 'Pariona',
     description:
-      'Advanced components and templates to craft beautiful websites.',
-    link: 'https://pro.motion-primitives.com/',
+      'Pariona is a sophisticated SaaS platform that enables businesses to implement Purchase Power Parity (PPP) based pricing strategies.',
+    link: 'https://pariona.vercel.app/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
     id: 'project1',
   },
   {
-    name: 'Motion Primitives',
-    description: 'UI kit to make beautiful, animated interfaces.',
-    link: 'https://motion-primitives.com/',
+    name: 'Converso',
+    description:
+      'Converso is an innovative Learning Management System (LMS) that revolutionizes education through AI-powered voice conversations.',
+    link: 'https://learnit-sigma.vercel.app/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project2',
@@ -49,28 +85,22 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Reglazed Studio',
-    title: 'CEO',
+    company: 'Aquera',
+    title: 'Software Developer Engineer 2',
     start: '2024',
     end: 'Present',
-    link: 'https://ibelick.com',
+    link: 'https://aquera.com/',
     id: 'work1',
   },
+]
+
+export const EDUCATION: Education[] = [
   {
-    company: 'Freelance',
-    title: 'Design Engineer',
-    start: '2022',
-    end: '2024',
-    link: 'https://ibelick.com',
-    id: 'work2',
-  },
-  {
-    company: 'Freelance',
-    title: 'Front-end Developer',
-    start: '2017',
-    end: 'Present',
-    link: 'https://ibelick.com',
-    id: 'work3',
+    school: 'GIET University',
+    degree: 'Bachelor of Technology in Computer Science and Engineering',
+    start: '2019',
+    end: '2023',
+    link: 'https://www.giet.edu/',
   },
 ]
 
@@ -97,7 +127,8 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     title: 'How to Export Metadata from MDX for Next.js SEO',
-    description: 'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
+    description:
+      'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
     link: '/blog/example-mdx-metadata',
     uid: 'blog-4',
   },
@@ -106,20 +137,16 @@ export const BLOG_POSTS: BlogPost[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     label: 'Github',
-    link: 'https://github.com/ibelick',
+    link: 'https://github.com/nomaddev4o4',
   },
   {
     label: 'Twitter',
-    link: 'https://twitter.com/ibelick',
+    link: 'https://x.com/krishnakanta04',
   },
   {
     label: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ibelick',
-  },
-  {
-    label: 'Instagram',
-    link: 'https://www.instagram.com/ibelick',
+    link: 'https://www.linkedin.com/in/krishnakanta-naik-913788209/',
   },
 ]
 
-export const EMAIL = 'your@email.com'
+export const EMAIL = 'krishnakantanaik04@gmail.com'
