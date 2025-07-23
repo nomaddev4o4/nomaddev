@@ -1,40 +1,117 @@
-<img src="/public/cover.jpg" alt="Cover image representing Nim, a personal website template" width="100%" />
+# Personal Portfolio
 
-Nim is a free and open-source personal website template built with Next.js 15, React 19, Tailwind CSS v4, and Motion. Designed for developers, designers, and founders, it combines minimalism with delightful animated components powered by [Motion-Primitives](https://motion-primitives.com).
+A modern, animated personal portfolio website built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Motion. This portfolio showcases my work experience, projects, skills, and education with smooth animations and a clean, minimal design.
 
-Live demo: [https://nim-fawn.vercel.app](https://nim-fawn.vercel.app)
+🌐 **Live Demo**: [Add your deployed URL here]
 
 ## Features
 
-- Minimal one-page portfolio layout.
-- Blog support with MDX.
-- Responsive and accessible design.
-- Easy to use
-- [Motion-Primitives](https://motion-primitives.com) for animated components.
+- **Modern Stack**: Built with Next.js 15, React 19, and TypeScript
+- **Smooth Animations**: Powered by Framer Motion and Motion-Primitives
+- **Responsive Design**: Fully responsive and accessible design
+- **Dark Mode**: Built-in dark mode support
+- **Interactive Components**: Magnetic effects, morphing dialogs, and animated backgrounds
+- **Project Showcase**: Video previews with expandable modal views
+- **Blog Support**: MDX-powered blog (currently commented out)
+- **Professional Sections**: Work experience, education, skills, and contact information
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion, Motion-Primitives
+- **Content**: MDX for blog posts
+- **Icons**: Lucide React
 
 ## Getting Started
 
-For detailed setup instructions, refer to the [Installation Guide](./INSTALLATION.md).
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/ibelick/nim.git
-cd nim
+git clone git@github.com:nomaddev4o4/nomaddev.git
+cd portfolio
+```
+
+2. Install dependencies:
+
+```bash
 npm install
+```
+
+3. Run the development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Contributing
+## Project Structure
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve Nim.
+```
+portfolio/
+├── app/                    # Next.js app directory
+│   ├── blog/              # Blog posts (MDX)
+│   ├── data.ts            # Portfolio data configuration
+│   └── page.tsx           # Main portfolio page
+├── components/            # Reusable UI components
+│   └── ui/               # Custom UI components
+├── hooks/                # Custom React hooks
+└── lib/                  # Utility functions and constants
+```
+
+## Customization
+
+### Personal Data
+
+Update your personal information in `app/data.ts`:
+
+- Projects with video previews
+- Work experience
+- Education background
+- Skills and technologies
+- Social links and contact information
+
+### Styling
+
+The project uses Tailwind CSS with custom components. Modify styles in:
+
+- `app/globals.css` for global styles
+- Individual component files for specific styling
+
+### Adding Projects
+
+Add new projects to the `PROJECTS` array in `app/data.ts` with:
+
+- Project name and description
+- Video preview URL
+- Live demo or repository link
 
 ## Deployment
 
-You can deploy your site to any hosting platform that supports Next.js. For the easiest deployment experience, consider using Vercel:
+Deploy easily to Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fibelick%2Fnim&env=NEXT_PUBLIC_SITE_URL&project-name=nim&repository-name=nim&redirect-url=https%3A%2F%2Ftwitter.com%2Fibelick&demo-title=Nim&demo-description=Nim%20is%20a%20free%20and%20open-source%20minimal%20personal%20website%20template%20built%20with%20Next.js%2015%2C%20React%2019%2C%20and%20Motion-Primitives.&demo-url=https%3A%2F%2Fnim.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Fibelick%2Fnim%2Frefs%2Fheads%2Fmain%2F.github%2Fassets%2Freadme.png&teamSlug=ibelick)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnomaddev4o4%2Fnomaddev)
 
-## About
+Or deploy to other platforms that support Next.js:
 
-Nim is designed to make personal branding effortless and beautiful. If you enjoy it, consider sharing it and exploring [Motion-Primitives Pro](https://pro.motion-primitives.com/).
+- Netlify
+- Railway
+- DigitalOcean App Platform
+
+## Contributing
+
+This is a personal portfolio, but feel free to:
+
+- Report bugs or issues
+- Suggest improvements
+- Fork for your own use
+
+## License
+
+Feel free to use this portfolio as inspiration for your own projects.
+
+## Acknowledgments
+
+Built with the amazing [Motion-Primitives](https://motion-primitives.com) component library and inspired by modern portfolio design patterns.
