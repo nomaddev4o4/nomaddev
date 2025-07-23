@@ -102,12 +102,13 @@ export const PROJECTS: Project[] = [
       'Tailwind',
     ],
     video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+      'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753298904/converso-project_r53yia.mp4',
     id: 'project2',
   },
   {
     name: 'AI Chat Landing Page',
-    description: 'Built a landing page for AI chat app in a HeroUI hackathon',
+    description:
+      'A modern, interactive landing page for an AI chat application built during the HeroUI hackathon.',
     link: 'https://heroui-chat-five.vercel.app/',
     githubLink: 'https://github.com/nomaddev4o4/heroui-chat',
     tech: ['Next JS', 'HeroUI', 'Framer Motion', 'Tailwind'],
