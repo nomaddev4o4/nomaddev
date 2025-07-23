@@ -16,7 +16,6 @@ type WorkExperience = {
   id: string
   description: string[]
   technologies: string[]
-  achievements: string[]
 }
 
 type Education = {
@@ -117,23 +116,27 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Aquera',
-    title: 'Software Developer Engineer 2',
+    title: 'Member of Technical Staff 2 (MTS-2)',
     start: '2024',
     end: 'Present',
     link: 'https://aquera.com/',
     id: 'work1',
     description: [
-      'Developing enterprise-grade Angular applications for Fortune 500 companies',
-      'Leading frontend architecture decisions and implementation strategies',
-      'Collaborating with cross-functional teams to deliver scalable solutions',
-      'Mentoring junior developers and conducting code reviews',
+      'Started as an intern and promoted to MTS2, contributing to enterprise-grade Angular applications',
+      'Developing and maintaining Partner Identity Access Management (PIAM) systems used by Fortune 500 enterprises',
+      'Successfully upgraded company-wide NX monorepo infrastructure from version 13 to version 17, improving build performance and developer experience',
+      'Participating in comprehensive code review processes to ensure code quality and maintain development standards',
+      'Collaborating with cross-functional teams including senior developers, designers, and product managers',
+      'Contributing to scalable frontend solutions while working closely with backend teams',
     ],
-    technologies: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'SCSS', 'Jest'],
-    achievements: [
-      'Improved application performance by 40% through optimization techniques',
-      'Successfully delivered 3 major feature releases on time',
-      'Reduced bug reports by 60% through improved testing practices',
-      'Led migration of legacy codebase to modern Angular architecture',
+    technologies: [
+      'Angular',
+      'TypeScript',
+      'SCSS',
+      'NX Monorepo',
+      'Git',
+      'Bitbucket',
+      'JIRA',
     ],
   },
 ]

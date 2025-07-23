@@ -45,6 +45,19 @@ type ProjectVideoProps = {
   src: string
 }
 
+type WorkCardProps = {
+  job: {
+    company: string
+    title: string
+    start: string
+    end: string
+    link: string
+    id: string
+    description: string[]
+    technologies: string[]
+  }
+}
+
 function ProjectVideo({ src }: ProjectVideoProps) {
   return (
     <MorphingDialog
@@ -90,20 +103,6 @@ function ProjectVideo({ src }: ProjectVideoProps) {
       </MorphingDialogContainer>
     </MorphingDialog>
   )
-}
-
-type WorkCardProps = {
-  job: {
-    company: string
-    title: string
-    start: string
-    end: string
-    link: string
-    id: string
-    description: string[]
-    technologies: string[]
-    achievements: string[]
-  }
 }
 
 function WorkCard({ job }: WorkCardProps) {
@@ -209,23 +208,6 @@ function WorkCard({ job }: WorkCardProps) {
                   </span>
                 ))}
               </div>
-            </div>
-
-            {/* Achievements */}
-            <div className="space-y-3">
-              <h4 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                Key Achievements
-              </h4>
-              <ul className="space-y-2">
-                {job.achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-green-500"></span>
-                    <span className="text-zinc-700 dark:text-zinc-300">
-                      {achievement}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </MorphingDialogContent>
