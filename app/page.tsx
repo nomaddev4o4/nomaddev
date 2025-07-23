@@ -289,6 +289,7 @@ export default function Personal() {
       initial="hidden"
       animate="visible"
     >
+      {/* About Section */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -305,12 +306,93 @@ export default function Personal() {
         </div>
       </motion.section>
 
+      {/* Skills Section */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Skills</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {SKILLS.map((skill) => (
+            <div key={skill.category} className="space-y-2">
+              <h4 className="font-normal dark:text-zinc-100">
+                {skill.category}
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {skill.items.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-md bg-zinc-100 px-2 py-1 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Work Experience Section */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
+        <div className="flex flex-col space-y-2">
+          {WORK_EXPERIENCE.map((job) => (
+            <WorkCard key={job.id} job={job} />
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Education Section */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-3 text-lg font-medium">Education</h3>
+        <div className="flex flex-col space-y-0">
+          <AnimatedBackground
+            enableHover
+            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
+            transition={{
+              type: 'spring',
+              bounce: 0,
+              duration: 0.2,
+            }}
+          >
+            {EDUCATION.map((education, i) => (
+              <Link
+                key={i}
+                className="-mx-3 rounded-xl px-3 py-3"
+                href={education.link}
+                data-id={i}
+              >
+                <div className="flex flex-col space-y-1">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {education.school}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {education.degree}
+                  </p>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {education.start} - {education.end}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </AnimatedBackground>
+        </div>
+      </motion.section>
+
+      {/* Projects Section */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <div className="mb-5">
-          <h3 className="text-lg font-medium">Here are some of my projects</h3>
+          <h3 className="text-lg font-medium">Projects</h3>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             These projects are built as a portfolio showcase to demonstrate my
             full-stack development skills and are not intended for actual SaaS
@@ -351,83 +433,7 @@ export default function Personal() {
         </div>
       </motion.section>
 
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Skills</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {SKILLS.map((skill) => (
-            <div key={skill.category} className="space-y-2">
-              <h4 className="font-normal dark:text-zinc-100">
-                {skill.category}
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-md bg-zinc-100 px-2 py-1 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
-        <div className="flex flex-col space-y-2">
-          {WORK_EXPERIENCE.map((job) => (
-            <WorkCard key={job.id} job={job} />
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Education</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.2,
-            }}
-          >
-            {EDUCATION.map((education, i) => (
-              <Link
-                key={i}
-                className="-mx-3 rounded-xl px-3 py-3"
-                href={education.link}
-                data-id={i}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {education.school}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {education.degree}
-                  </p>
-                  <p className="text-zinc-500 dark:text-zinc-400">
-                    {education.start} - {education.end}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </motion.section>
-
+      {/* Connect Section */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
