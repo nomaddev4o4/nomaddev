@@ -68,6 +68,7 @@ function ProjectVideo({ src }: ProjectVideoProps) {
           <video
             src={src}
             autoPlay
+            controls
             loop
             muted
             className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
@@ -180,6 +181,16 @@ export default function Personal() {
                   {project.description}
                 </p>
               </div>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <div
+                    key={tech}
+                    className="rounded-2xl bg-black px-2 py-1 text-xs text-white dark:bg-white dark:text-black"
+                  >
+                    {tech}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -218,7 +229,7 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
-            <a
+            <Link
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               href={job.link}
               target="_blank"
@@ -244,7 +255,7 @@ export default function Personal() {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </motion.section>
