@@ -2,6 +2,7 @@ type Project = {
   name: string
   description: string
   link: string
+  githubLink: string
   video: string
   id: string
   tech: string[]
@@ -71,6 +72,7 @@ export const PROJECTS: Project[] = [
     description:
       'Pariona is a sophisticated SaaS platform that enables businesses to implement Purchase Power Parity (PPP) based pricing strategies.',
     link: 'https://pariona.vercel.app/',
+    githubLink: 'https://github.com/nomaddev4o4/pariona',
     tech: [
       'NextJS',
       'Neon',
@@ -81,7 +83,7 @@ export const PROJECTS: Project[] = [
       'Tailwind',
     ],
     video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+      'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753296742/pariona-project_zbizeg.mp4',
     id: 'project1',
   },
   {
@@ -89,6 +91,7 @@ export const PROJECTS: Project[] = [
     description:
       'Converso is an innovative Learning Management System (LMS) SaaS that revolutionizes education through AI-powered voice conversations.',
     link: 'https://learnit-sigma.vercel.app/',
+    githubLink: 'https://github.com/nomaddev4o4/lms-saas',
     tech: [
       'Next JS',
       'Supabase',
@@ -105,10 +108,11 @@ export const PROJECTS: Project[] = [
   {
     name: 'AI Chat Landing Page',
     description: 'Built a landing page for AI chat app in a HeroUI hackathon',
-    link: 'https://learnit-sigma.vercel.app/',
+    link: 'https://heroui-chat-five.vercel.app/',
+    githubLink: 'https://github.com/nomaddev4o4/heroui-chat',
     tech: ['Next JS', 'HeroUI', 'Framer Motion', 'Tailwind'],
     video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+      'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753285315/landing-page-project_l6rcwp.mp4',
     id: 'project3',
   },
 ]
@@ -116,13 +120,13 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Aquera',
-    title: 'Member of Technical Staff 2 (MTS-2)',
+    title: 'Software Developer Engineer II',
     start: '2024',
     end: 'Present',
     link: 'https://aquera.com/',
     id: 'work1',
     description: [
-      'Started as an intern and promoted to MTS2, contributing to enterprise-grade Angular applications',
+      'Started as an intern and promoted to SDE-II, contributing to enterprise-grade Angular applications',
       'Developing and maintaining Partner Identity Access Management (PIAM) systems used by Fortune 500 enterprises',
       'Successfully upgraded company-wide NX monorepo infrastructure from version 13 to version 17, improving build performance and developer experience',
       'Participating in comprehensive code review processes to ensure code quality and maintain development standards',
