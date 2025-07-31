@@ -46,7 +46,7 @@ export const SKILLS = [
   },
   {
     category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS', 'PHP', 'SQL'],
   },
   {
     category: 'Styling',
