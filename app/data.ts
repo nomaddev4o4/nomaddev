@@ -41,16 +41,20 @@ type SocialLink = {
 
 export const SKILLS = [
   {
+    category: 'AI Tools',
+    items: ['Cursor', 'Claude Code', 'GitHub Copilot', 'v0'],
+  },
+  {
     category: 'Frameworks & Libraries',
     items: ['Next.js', 'React', 'Angular'],
   },
   {
     category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS', 'PHP', 'SQL'],
+    items: ['TypeScript', 'JavaScript', 'HTML', 'CSS', 'SQL'],
   },
   {
     category: 'Styling',
-    items: ['Tailwind CSS', 'SCSS', 'ShadcnUI', 'HeroUI'],
+    items: ['Tailwind CSS', 'SCSS', 'ShadcnUI', 'HeroUI', 'Framer Motion'],
   },
   {
     category: 'Tools & Platforms',
@@ -58,11 +62,15 @@ export const SKILLS = [
   },
   {
     category: 'Backend & APIs',
-    items: ['Supabase', 'NodeJS'],
+    items: ['Supabase', 'Drizzle ORM', 'Stripe', 'VAPI', 'NodeJS'],
+  },
+  {
+    category: 'Auth & IAM',
+    items: ['AWS Cognito', 'AWS Amplify', 'Clerk', 'Okta', 'ForgeRock'],
   },
   {
     category: 'Other Skills',
-    items: ['Responsive Design', 'Clean Architecture'],
+    items: ['Responsive Design', 'Micro-frontend Architecture', 'CI/CD'],
   },
 ]
 
@@ -70,17 +78,18 @@ export const PROJECTS: Project[] = [
   {
     name: 'Pariona',
     description:
-      'Pariona is a sophisticated SaaS platform that enables businesses to implement Purchase Power Parity (PPP) based pricing strategies.',
+      'A full-stack SaaS platform enabling businesses to implement Purchase Power Parity (PPP) pricing globally. Automatically detects visitor location via Vercel edge functions and renders localized discount banners — with Stripe subscriptions, real-time analytics, and an embeddable JS widget.',
     link: 'https://pariona.vercel.app/',
     githubLink: 'https://github.com/nomaddev4o4/pariona',
     tech: [
-      'NextJS',
-      'Neon',
+      'Next.js 15',
+      'Neon (PostgreSQL)',
+      'Drizzle ORM',
       'Stripe',
       'Clerk Auth',
-      'Drizzle',
+      'Recharts',
       'ShadcnUI',
-      'Tailwind',
+      'Tailwind CSS',
     ],
     video:
       'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753296742/pariona-project_zbizeg.mp4',
@@ -89,17 +98,21 @@ export const PROJECTS: Project[] = [
   {
     name: 'Converso',
     description:
-      'Converso is an innovative Learning Management System (LMS) SaaS that revolutionizes education through AI-powered voice conversations.',
+      'An AI-powered LMS where students create personalized tutoring companions and conduct real-time voice sessions. Integrates VAPI for voice orchestration, ElevenLabs for voice synthesis, Deepgram for live transcription, and GPT-4 for tutoring responses.',
     link: 'https://learnit-sigma.vercel.app/',
     githubLink: 'https://github.com/nomaddev4o4/lms-saas',
     tech: [
-      'Next JS',
+      'Next.js 15',
+      'React 19',
       'Supabase',
-      'Vapi AI',
+      'VAPI',
+      'ElevenLabs',
+      'OpenAI GPT-4',
+      'Deepgram',
       'Clerk Auth & Billing',
-      'Drizzle',
+      'Sentry',
       'ShadcnUI',
-      'Tailwind',
+      'Tailwind CSS',
     ],
     video:
       'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753298904/converso-project_r53yia.mp4',
@@ -108,10 +121,10 @@ export const PROJECTS: Project[] = [
   {
     name: 'AI Chat Landing Page',
     description:
-      'A modern, interactive landing page for an AI chat application built during the HeroUI hackathon.',
+      'A polished marketing landing page for HeroUI Chat (heroui.chat), built as an entry in the official HeroUI hackathon. Features an animated hero, live component previews for 5 AI features, an auto-scrolling community gallery, and a 3-tier pricing section.',
     link: 'https://heroui-chat-five.vercel.app/',
     githubLink: 'https://github.com/nomaddev4o4/heroui-chat',
-    tech: ['Next JS', 'HeroUI', 'Framer Motion', 'Tailwind'],
+    tech: ['Next.js', 'HeroUI', 'Framer Motion', 'Tailwind CSS'],
     video:
       'https://res.cloudinary.com/dp1fryj2w/video/upload/v1753285315/landing-page-project_l6rcwp.mp4',
     id: 'project3',
@@ -121,25 +134,30 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Aquera',
-    title: 'Software Developer Engineer II',
+    title: 'Software Development Engineer II',
     start: '2024',
     end: 'Present',
     link: 'https://aquera.com/',
     id: 'work1',
     description: [
-      'Started as an intern and promoted to SDE-II, contributing to enterprise-grade Angular applications',
-      'Developing and maintaining Partner Identity Access Management (PIAM) systems used by Fortune 500 enterprises',
-      'Successfully upgraded company-wide NX monorepo infrastructure from version 13 to version 17, improving build performance and developer experience',
-      'Participating in comprehensive code review processes to ensure code quality and maintain development standards',
-      'Collaborating with cross-functional teams including senior developers, designers, and product managers',
-      'Contributing to scalable frontend solutions while working closely with backend teams',
+      'Joined as a Software Engineering Intern and promoted to SDE-II within the same year based on performance and impact',
+      'Sole frontend engineer on GAM — Aquera\'s core enterprise admin portal deployed for Toyota — owning 5+ major modules with 982 commits on Angular 21, TypeScript, RxJS, and NgRx',
+      'Delivered key modules including Acknowledgements (PDF workflows), PIAM Audit Logs, Email Template migration, realm-based multi-org with OKTA, and dashboard migration from Chart.js to Highcharts',
+      'Upgraded the company-wide Nx monorepo from v13 to v17, improving build performance and developer tooling across the frontend team',
+      'Functioned as MTS-2 on the NEIM product team, mentoring 3 junior frontend engineers across risk profiling, Delegated Admin portal, and contractor management features',
+      'Bootstrapped two greenfield Angular/Nx applications (NEI Contractor UI and NEI Control Center UI) end-to-end with AWS Cognito auth and Bitbucket CI/CD pipelines targeting AWS S3',
+      '2,100+ commits across 7 production repositories spanning two major product lines (GAM and NEIM)',
     ],
     technologies: [
       'Angular',
       'TypeScript',
-      'SCSS',
+      'RxJS',
+      'NgRx',
       'NX Monorepo',
-      'Git',
+      'Module Federation',
+      'AWS Cognito',
+      'Highcharts',
+      'SCSS',
       'Bitbucket',
       'JIRA',
     ],
@@ -157,47 +175,21 @@ export const EDUCATION: Education[] = [
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
-  {
-    title: 'Exploring the Intersection of Design, AI, and Design Engineering',
-    description: 'How AI is changing the way we design',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-1',
-  },
-  {
-    title: 'Why I left my job to start my own company',
-    description:
-      'A deep dive into my decision to leave my job and start my own company',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-2',
-  },
-  {
-    title: 'What I learned from my first year of freelancing',
-    description:
-      'A look back at my first year of freelancing and what I learned',
-    link: '/blog/exploring-the-intersection-of-design-ai-and-design-engineering',
-    uid: 'blog-3',
-  },
-  {
-    title: 'How to Export Metadata from MDX for Next.js SEO',
-    description:
-      'A guide on exporting metadata from MDX files to leverage Next.js SEO features.',
-    link: '/blog/example-mdx-metadata',
-    uid: 'blog-4',
-  },
+  // Add your real blog posts here — placeholder entries removed
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    label: 'Github',
+    label: 'GitHub',
     link: 'https://github.com/nomaddev4o4',
-  },
-  {
-    label: 'Twitter',
-    link: 'https://x.com/krishnakanta04',
   },
   {
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/krishnakanta-naik-913788209/',
+  },
+  {
+    label: 'Twitter',
+    link: 'https://x.com/krishnakanta04',
   },
 ]
 
