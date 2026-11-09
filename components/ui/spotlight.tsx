@@ -48,14 +48,18 @@ export function Spotlight({
   useEffect(() => {
     if (!parentElement) return
 
+    // Keep stable references so the same listeners are removed on cleanup.
+    const handleMouseEnter = () => setIsHovered(true)
+    const handleMouseLeave = () => setIsHovered(false)
+
     parentElement.addEventListener('mousemove', handleMouseMove)
-    parentElement.addEventListener('mouseenter', () => setIsHovered(true))
-    parentElement.addEventListener('mouseleave', () => setIsHovered(false))
+    parentElement.addEventListener('mouseenter', handleMouseEnter)
+    parentElement.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
       parentElement.removeEventListener('mousemove', handleMouseMove)
-      parentElement.removeEventListener('mouseenter', () => setIsHovered(true))
-      parentElement.removeEventListener('mouseleave', () => setIsHovered(false))
+      parentElement.removeEventListener('mouseenter', handleMouseEnter)
+      parentElement.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [parentElement, handleMouseMove])
 

@@ -4,16 +4,27 @@ import { AnimatePresence, Transition, motion } from 'motion/react'
 import {
   Children,
   cloneElement,
+  isValidElement,
   ReactElement,
-  useEffect,
+  ReactNode,
   useState,
   useId,
 } from 'react'
 
+type AnimatedBackgroundChildProps = {
+  'data-id': string
+  'data-checked'?: 'true' | 'false'
+  className?: string
+  children?: ReactNode
+  onClick?: () => void
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
+}
+
 export type AnimatedBackgroundProps = {
   children:
-    | ReactElement<{ 'data-id': string }>[]
-    | ReactElement<{ 'data-id': string }>
+    | ReactElement<AnimatedBackgroundChildProps>[]
+    | ReactElement<AnimatedBackgroundChildProps>
   defaultValue?: string
   onValueChange?: (newActiveId: string | null) => void
   className?: string
@@ -29,27 +40,31 @@ export function AnimatedBackground({
   transition,
   enableHover = false,
 }: AnimatedBackgroundProps) {
-  const [activeId, setActiveId] = useState<string | null>(null)
+  const [activeId, setActiveId] = useState<string | null>(defaultValue ?? null)
+  const [prevDefaultValue, setPrevDefaultValue] = useState(defaultValue)
   const uniqueId = useId()
 
-  const handleSetActiveId = (id: string | null) => {
-    setActiveId(id)
-
-    if (onValueChange) {
-      onValueChange(id)
-    }
-  }
-
-  useEffect(() => {
+  // Sync with a changed `defaultValue` during render (instead of in an
+  // effect) so there's no extra render pass with stale state.
+  if (defaultValue !== prevDefaultValue) {
+    setPrevDefaultValue(defaultValue)
     if (defaultValue !== undefined) {
       setActiveId(defaultValue)
     }
-  }, [defaultValue])
+  }
 
-  return Children.map(children, (child: any, index) => {
+  const handleSetActiveId = (id: string | null) => {
+    setActiveId(id)
+    onValueChange?.(id)
+  }
+
+  // Children.map assigns stable keys, so cloned children keep their identity.
+  return Children.map(children, (child) => {
+    if (!isValidElement<AnimatedBackgroundChildProps>(child)) return child
+
     const id = child.props['data-id']
 
-    const interactionProps = enableHover
+    const interactionProps: Partial<AnimatedBackgroundChildProps> = enableHover
       ? {
           onMouseEnter: () => handleSetActiveId(id),
           onMouseLeave: () => handleSetActiveId(null),
@@ -61,7 +76,6 @@ export function AnimatedBackground({
     return cloneElement(
       child,
       {
-        key: index,
         className: cn('relative inline-flex', child.props.className),
         'data-checked': activeId === id ? 'true' : 'false',
         ...interactionProps,

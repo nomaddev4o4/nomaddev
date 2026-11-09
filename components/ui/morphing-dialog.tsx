@@ -20,6 +20,7 @@ import { createPortal } from 'react-dom'
 import { cn } from '@/lib/utils'
 import { XIcon } from 'lucide-react'
 import useClickOutside from '@/hooks/useClickOutside'
+import { useIsClient } from '@/hooks/useIsClient'
 
 export type MorphingDialogContextType = {
   isOpen: boolean
@@ -89,6 +90,7 @@ export type MorphingDialogTriggerProps = {
   className?: string
   style?: React.CSSProperties
   triggerRef?: React.RefObject<HTMLDivElement>
+  ariaLabel?: string
 }
 
 function MorphingDialogTrigger({
@@ -96,8 +98,14 @@ function MorphingDialogTrigger({
   className,
   style,
   triggerRef,
+  ariaLabel,
 }: MorphingDialogTriggerProps) {
-  const { setIsOpen, isOpen, uniqueId } = useMorphingDialog()
+  const {
+    setIsOpen,
+    isOpen,
+    uniqueId,
+    triggerRef: contextTriggerRef,
+  } = useMorphingDialog()
 
   const handleClick = useCallback(() => {
     setIsOpen(!isOpen)
@@ -115,17 +123,19 @@ function MorphingDialogTrigger({
 
   return (
     <motion.div
-      ref={triggerRef}
+      // Fall back to the provider's ref so focus returns here when the dialog closes.
+      ref={triggerRef ?? contextTriggerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
       role="button"
+      tabIndex={0}
       aria-haspopup="dialog"
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
-      aria-label={`Open dialog ${uniqueId}`}
+      aria-label={ariaLabel ?? 'Open dialog'}
     >
       {children}
     </motion.div>
@@ -208,6 +218,7 @@ function MorphingDialogContent({
     <motion.div
       ref={containerRef}
       layoutId={`dialog-${uniqueId}`}
+      id={`motion-ui-morphing-dialog-content-${uniqueId}`}
       className={cn('overflow-hidden', className)}
       style={style}
       role="dialog"
@@ -228,14 +239,10 @@ export type MorphingDialogContainerProps = {
 
 function MorphingDialogContainer({ children }: MorphingDialogContainerProps) {
   const { isOpen, uniqueId } = useMorphingDialog()
-  const [mounted, setMounted] = useState(false)
+  // Portals need `document`, which only exists after hydration.
+  const isClient = useIsClient()
 
-  useEffect(() => {
-    setMounted(true)
-    return () => setMounted(false)
-  }, [])
-
-  if (!mounted) return null
+  if (!isClient) return null
 
   return createPortal(
     <AnimatePresence initial={false} mode="sync">

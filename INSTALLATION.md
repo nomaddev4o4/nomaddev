@@ -1,8 +1,10 @@
-# Nim - Installation Guide
+# Installation Guide
+
+_Based on the [Nim](https://github.com/ibelick/nim) template._
 
 ## Prerequisites
 
-- Node.js 20.x or later
+- Node.js 20.9 or later (required by Next.js 16)
 - Git
 
 ## Installation Steps
@@ -10,8 +12,8 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/ibelick/nim.git
-   cd nim
+   git clone https://github.com/nomaddev4o4/nomaddev.git
+   cd nomaddev
    ```
 
 2. **Install dependencies**

@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
   name: string
   description: string
   link: string
@@ -8,7 +8,7 @@ type Project = {
   tech: string[]
 }
 
-type WorkExperience = {
+export type WorkExperience = {
   company: string
   title: string
   start: string
@@ -19,7 +19,7 @@ type WorkExperience = {
   technologies: string[]
 }
 
-type Education = {
+export type Education = {
   school: string
   degree: string
   start: string
@@ -27,19 +27,19 @@ type Education = {
   link: string
 }
 
-type BlogPost = {
+export type BlogPost = {
   title: string
   description: string
   link: string
   uid: string
 }
 
-type SocialLink = {
+export type SocialLink = {
   label: string
   link: string
 }
 
-export const SKILLS = [
+export const SKILLS: { category: string; items: string[] }[] = [
   {
     category: 'AI Tools',
     items: ['Cursor', 'Claude Code', 'GitHub Copilot', 'v0'],
@@ -141,7 +141,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work1',
     description: [
       'Joined as a Software Engineering Intern and promoted to SDE-II within the same year based on performance and impact',
-      'Sole frontend engineer on GAM — Aquera\'s core enterprise admin portal deployed for Toyota — owning 5+ major modules with 982 commits on Angular 21, TypeScript, RxJS, and NgRx',
+      "Sole frontend engineer on GAM — Aquera's core enterprise admin portal deployed for Toyota — owning 5+ major modules with 982 commits on Angular 21, TypeScript, RxJS, and NgRx",
       'Delivered key modules including Acknowledgements (PDF workflows), PIAM Audit Logs, Email Template migration, realm-based multi-org with OKTA, and dashboard migration from Chart.js to Highcharts',
       'Upgraded the company-wide Nx monorepo from v13 to v17, improving build performance and developer tooling across the frontend team',
       'Functioned as MTS-2 on the NEIM product team, mentoring 3 junior frontend engineers across risk profiling, Delegated Admin portal, and contractor management features',

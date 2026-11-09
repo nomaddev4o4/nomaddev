@@ -3,6 +3,40 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
+  Fonts are loaded via next/font in app/layout.tsx, which defines
+  --font-geist / --font-geist-mono on <body>. `inline` makes the utilities
+  reference those variables directly instead of resolving them on :root.
+*/
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme {
+  /*
+    Entrance animations are pure CSS so that server-rendered HTML is fully
+    visible without waiting for JavaScript to hydrate. Use with the
+    `motion-safe:` variant so users with reduced motion see content instantly.
+  */
+  --animate-enter: enter 0.3s ease-out both;
+  --animate-fade-in: fade-in 0.3s ease-out both;
+
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(8px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+/*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
@@ -20,8 +54,10 @@
   }
 }
 
+/* sugar-high syntax highlighting tokens (used by mdx-components.tsx) */
 :root {
   --sh-class: #7aa2f7;
+  --sh-identifier: #c0caf5;
   --sh-sign: #89ddff;
   --sh-string: #9ece6a;
   --sh-keyword: #bb9af7;

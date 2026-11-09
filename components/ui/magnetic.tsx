@@ -34,6 +34,9 @@ export function Magnetic({
   const springX = useSpring(x, springOptions)
   const springY = useSpring(y, springOptions)
 
+  // 'global' reacts to the cursor anywhere on the page, so it's always active.
+  const isActive = actionArea === 'global' || isHovered
+
   useEffect(() => {
     const calculateDistance = (e: MouseEvent) => {
       if (ref.current) {
@@ -45,7 +48,7 @@ export function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2)
 
-        if (isHovered && absoluteDistance <= range) {
+        if (isActive && absoluteDistance <= range) {
           const scale = 1 - absoluteDistance / range
           x.set(distanceX * intensity * scale)
           y.set(distanceY * intensity * scale)
@@ -61,7 +64,7 @@ export function Magnetic({
     return () => {
       document.removeEventListener('mousemove', calculateDistance)
     }
-  }, [ref, isHovered, intensity, range])
+  }, [isActive, intensity, range, x, y])
 
   useEffect(() => {
     if (actionArea === 'parent' && ref.current?.parentElement) {
@@ -77,8 +80,6 @@ export function Magnetic({
         parent.removeEventListener('mouseenter', handleParentEnter)
         parent.removeEventListener('mouseleave', handleParentLeave)
       }
-    } else if (actionArea === 'global') {
-      setIsHovered(true)
     }
   }, [actionArea])
 
