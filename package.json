@@ -1,5 +1,5 @@
 {
-  "name": "nim",
+  "name": "nomaddev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,9 +12,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
-    "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.4.5",
-    "@tailwindcss/typography": "^0.5.20",
     "clsx": "^2.1.1",
     "lucide-react": "^1.70.0",
     "motion": "^14.11.1",
@@ -27,13 +25,13 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.5",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/mdx": "^2.0.14",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.5",
-    "postcss": "^8.5.32",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.5",
@@ -41,8 +39,5 @@
   },
   "overrides": {
     "postcss-selector-parser": "^6.1.6"
-  },
-  "engines": {
-    "node": ">=20.9.0"
   }
 }

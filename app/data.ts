@@ -27,13 +27,6 @@ export type Education = {
   link: string
 }
 
-export type BlogPost = {
-  title: string
-  description: string
-  link: string
-  uid: string
-}
-
 export type SocialLink = {
   label: string
   link: string
@@ -172,10 +165,6 @@ export const EDUCATION: Education[] = [
     end: '2023',
     link: 'https://www.giet.edu/',
   },
-]
-
-export const BLOG_POSTS: BlogPost[] = [
-  // Add your real blog posts here — placeholder entries removed
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
